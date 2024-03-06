@@ -7,3 +7,9 @@ function addTodo() {
   
   todoName.value = '';
 }
+
+function sendOnEnter() {
+  if (event.key === 'Enter') {
+    addTodo();
+  }
+}
