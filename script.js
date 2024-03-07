@@ -4,6 +4,7 @@ renderTodoList();
 
 function renderTodoList() {
   let todoListHTML = '';
+  const todoListContainerHTML = document.querySelector('.todo-list');
 
   for (let i = 0; i < todoList.length; i++) {
     const todoObject = todoList[i];
@@ -26,7 +27,20 @@ function renderTodoList() {
     todoListHTML += HTML
   }
 
-  document.querySelector('.todo-list').innerHTML = todoListHTML;
+  todoListContainerHTML.innerHTML = todoListHTML;
+
+  seperateOnRender();
+}
+
+function seperateOnRender() {
+  const todoListContainerHTML = document.querySelector('.todo-list');
+  const seperator = document.querySelector('.seperator-off');
+
+  if (todoListContainerHTML.children.length > 0) {
+    seperator.classList.add('seperator');
+  } else {
+    seperator.classList.remove('seperator');
+  }
 }
 
  function addTodo() {
