@@ -85,6 +85,7 @@ ul li {
   display: grid;
   grid-template-columns: 1fr 1fr 20px;
   row-gap: 7px;
+  align-items: center;
 }
 
 .delete-btn {
