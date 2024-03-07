@@ -9,13 +9,16 @@
 
 body {
   background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 main {
   background-color: #fff;
   max-width: 500px;
-  padding: 16px 25px;
-  margin: 40vh auto;
+   padding: 16px 25px;
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
