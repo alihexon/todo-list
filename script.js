@@ -28,6 +28,11 @@ function renderTodoList() {
      const todoName = document.querySelector('.todo-name').value;
      const todoDate = document.querySelector('.todo-date').value;
      
+     if (todoName === '' || todoDate === '') {
+      alert('Please fill the inputs in order to add a new todo.')
+      return
+     }
+
      const newTodo = {
        name: todoName,
        dueDate: todoDate
