@@ -8,10 +8,19 @@
   <title>To-do list</title>
 </head>
 <body>
-  <input type="text" placeholder="Todo name" class="todo-name" onkeydown="sendOnEnter();">
-  <input type="date" class="todo-date">
-  <button class="add-todo" onclick="addTodo();">Add</button>
-  <ul class="todo-list"></ul>
+  <main>
+    <h1>Todo List</h1>
+    <section class="add-section">
+      <div class="todo-wrapper">
+        <input type="text" placeholder="Todo name" class="todo-name" onkeydown="sendOnEnter();">
+        <input type="date" class="todo-date">
+      </div>
+      <button class="add-todo" onclick="addTodo();">Add</button>
+    </section>
+    <section class="display-section">
+      <ul class="todo-list"></ul>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
