@@ -15,7 +15,7 @@ function renderTodoList() {
     onclick="
     todoList.splice(${i}, 1);
     renderTodoList();">
-    Delete
+      <i class='bx bxs-trash'></i>
     </button>
     `
     todoListHTML += HTML
@@ -23,23 +23,6 @@ function renderTodoList() {
 
   document.querySelector('.todo-list').innerHTML = todoListHTML;
 }
-
-// function addTodo() {
-//   const todoName = document.querySelector('.todo-name');
-//   const name = todoName.value;
-  
-//   const todoDate = document.querySelector('.todo-date');
-//   const dueDate = todoDate.value;
-
-//   todoList.push(
-//     todoDate,
-//     dueDate,
-//   );  
-  
-//   todoName.value = '';
-
-//   renderTodoList();
-// }
 
  function addTodo() {
      const todoName = document.querySelector('.todo-name').value;
