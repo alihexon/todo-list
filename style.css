@@ -71,25 +71,17 @@ main h1 {
   margin: 10px 0;
 }
 
-ul,
-ul li,
-.todo-info {
-  display: flex;
-}
-
 ul {
-  list-style: none;
+  display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 2px;
+  list-style: none;
 }
 
 ul li {
-  justify-content: space-between;
-  align-items: center;
-}
-
-.todo-info {
-  gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 20px;
+  row-gap: 7px;
 }
 
 .delete-btn {

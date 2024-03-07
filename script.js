@@ -11,11 +11,8 @@ function renderTodoList() {
     const { name, dueDate } = todoObject;
     const HTML = `
       <li>
-        <div class="todo-info">
-          <div>${name}</div>
-          <div>-</div>
-          <div>${dueDate}</div>
-        </div>
+        <div>${name}</div>
+        <div>${dueDate}</div>
         <button class="delete-btn"
         onclick="
         todoList.splice(${i}, 1);
