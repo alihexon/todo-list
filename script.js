@@ -1,4 +1,4 @@
-let todoList = [];
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 renderTodoList();
 
@@ -19,6 +19,7 @@ function renderTodoList() {
         <button class="delete-btn"
         onclick="
         todoList.splice(${i}, 1);
+        localStorage.setItem('todoList', JSON.stringify(todoList));
         renderTodoList();">
           <i class='bx bxs-trash'></i>
         </button>
@@ -58,6 +59,7 @@ function seperateOnRender() {
      };
      
      todoList.push(newTodo);
+     localStorage.setItem('todoList', JSON.stringify(todoList));
      
      renderTodoList();
      
