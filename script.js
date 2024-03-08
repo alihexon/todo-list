@@ -6,8 +6,7 @@ function renderTodoList() {
   let todoListHTML = '';
   const todoListContainerHTML = document.querySelector('.todo-list');
 
-  for (let i = 0; i < todoList.length; i++) {
-    const todoObject = todoList[i];
+  todoList.forEach(function(todoObject, index) {
     const { name, dueDate } = todoObject;
     const HTML = `
       <li>
@@ -15,7 +14,7 @@ function renderTodoList() {
         <div>${dueDate}</div>
         <button class="delete-btn"
         onclick="
-        todoList.splice(${i}, 1);
+        todoList.splice(${index}, 1);
         localStorage.setItem('todoList', JSON.stringify(todoList));
         renderTodoList();">
           <i class='bx bxs-trash'></i>
@@ -23,7 +22,7 @@ function renderTodoList() {
       </li>
     `
     todoListHTML += HTML
-  }
+  })
 
   todoListContainerHTML.innerHTML = todoListHTML;
 
