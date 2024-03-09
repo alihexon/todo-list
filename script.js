@@ -6,7 +6,7 @@ function renderTodoList() {
   let todoListHTML = '';
   const todoListContainerHTML = document.querySelector('.todo-list');
 
-  todoList.forEach(function(todoObject, index) {
+  todoList.forEach((todoObject, index) => {
     const { name, dueDate } = todoObject;
     const HTML = `
       <li>
