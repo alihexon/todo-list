@@ -1,4 +1,6 @@
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+const todoInput = document.querySelector('.todo-name')
+const todoSend = document.querySelector('.add-todo')
 
 renderTodoList();
 
@@ -40,31 +42,31 @@ function seperateOnRender() {
   }
 }
 
- function addTodo() {
-     const todoName = document.querySelector('.todo-name').value;
-     const todoDate = document.querySelector('.todo-date').value;
-     
-     if (todoName === '' || todoDate === '') {
-      alert('Please fill the inputs in order to add a new todo.')
-      return
-     }
+todoSend.addEventListener('click', () => {
+  const todoName = document.querySelector('.todo-name').value;
+  const todoDate = document.querySelector('.todo-date').value;
+  
+  if (todoName === '' || todoDate === '') {
+   alert('Please fill the inputs in order to add a new todo.')
+   return
+  }
 
-     const newTodo = {
-       name: todoName,
-       dueDate: todoDate
-     };
-     
-     todoList.push(newTodo);
-     localStorage.setItem('todoList', JSON.stringify(todoList));
-     
-     renderTodoList();
-     
-     document.querySelector('.todo-name').value = '';
-     document.querySelector('.todo-date').value = '';
-   }
+  const newTodo = {
+    name: todoName,
+    dueDate: todoDate
+  };
+  
+  todoList.push(newTodo);
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+  
+  renderTodoList();
+  
+  document.querySelector('.todo-name').value = '';
+  document.querySelector('.todo-date').value = '';
+})
 
-  function sendOnEnter() {
-    if (event.key === 'Enter') {
-      addTodo();
-    }
-}
+todoInput.addEventListener('keydown', () => {
+  if (event.key === 'Enter') {
+    addTodo();
+  }
+})
