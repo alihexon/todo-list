@@ -12,7 +12,8 @@ function renderTodoList() {
     const { name, dueDate } = todoObject;
     const HTML = `
       <li>
-        <div>${name}</div>
+        <input type="checkbox" class="todo-checkbox">
+        <div class="todo-item">${name}</div>
         <div>${dueDate}</div>
         <button class="delete-btn"
         onclick="
@@ -69,4 +70,20 @@ todoInput.addEventListener('keydown', () => {
   if (event.key === 'Enter') {
     addTodo();
   }
+})
+
+const checkboxElement = document.querySelector('.todo-checkbox');
+function lineThroughTodo() {
+  const checkedBox = checkboxElement.checked
+  const todoItem = document.querySelector('.todo-item');
+
+  if (checkedBox) {
+    todoItem.classList.add('todo-item-done');
+  } else {
+    todoItem.classList.remove('todo-item-done');
+  }
+}
+
+checkboxElement.addEventListener('click', () => {
+  lineThroughTodo();
 })
