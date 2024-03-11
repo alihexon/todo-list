@@ -2,7 +2,6 @@
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 const todoInput = document.querySelector('.todo-name');
 const todoSend = document.querySelector('.add-todo');
-const checkboxElement = document.querySelector('.todo-checkbox');
 
 renderTodoList(); // Call the function to render the todo list when entering the page
 // Function to render the todo list items
@@ -67,6 +66,8 @@ function addTodo() {
 todoSend.addEventListener('click', () => addTodo());
 // Event listener for pressing Enter to add a todo
 todoInput.addEventListener('keydown', () => { if (event.key === 'Enter') { addTodo() }}) 
+
+const checkboxElement = document.querySelector('.todo-checkbox');
 // Function to apply line-through style to todo item based on checkbox state
 function lineThroughTodo() {
   const checkedBox = checkboxElement.checked
