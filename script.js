@@ -43,7 +43,9 @@ function seperateOnRender() {
   }
 }
 
-todoSend.addEventListener('click', () => {
+todoSend.addEventListener('click', () => addTodo());
+
+function addTodo() {
   const todoName = document.querySelector('.todo-name').value;
   const todoDate = document.querySelector('.todo-date').value;
   
@@ -64,7 +66,7 @@ todoSend.addEventListener('click', () => {
   
   document.querySelector('.todo-name').value = '';
   document.querySelector('.todo-date').value = '';
-})
+}
 
 todoInput.addEventListener('keydown', () => {
   if (event.key === 'Enter') {
