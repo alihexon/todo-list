@@ -1,6 +1,7 @@
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 const todoInput = document.querySelector('.todo-name')
 const todoSend = document.querySelector('.add-todo')
+const checkboxElement = document.querySelector('.todo-checkbox');
 
 renderTodoList();
 
@@ -43,8 +44,6 @@ function seperateOnRender() {
   }
 }
 
-todoSend.addEventListener('click', () => addTodo());
-
 function addTodo() {
   const todoName = document.querySelector('.todo-name').value;
   const todoDate = document.querySelector('.todo-date').value;
@@ -68,13 +67,9 @@ function addTodo() {
   document.querySelector('.todo-date').value = '';
 }
 
-todoInput.addEventListener('keydown', () => {
-  if (event.key === 'Enter') {
-    addTodo();
-  }
-})
+todoSend.addEventListener('click', () => addTodo());
+todoInput.addEventListener('keydown', () => { if (event.key === 'Enter') { addTodo() }})
 
-const checkboxElement = document.querySelector('.todo-checkbox');
 function lineThroughTodo() {
   const checkedBox = checkboxElement.checked
   const todoItem = document.querySelector('.todo-item');
@@ -86,6 +81,4 @@ function lineThroughTodo() {
   }
 }
 
-checkboxElement.addEventListener('click', () => {
-  lineThroughTodo();
-})
+checkboxElement.addEventListener('click', () => lineThroughTodo())
