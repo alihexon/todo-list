@@ -29,6 +29,17 @@ function renderTodoList() {
   })
   todoListContainerHTML.innerHTML = todoListHTML; // Update the todo list container with the generated HTML
   seperateOnRender(); // Call a function to handle UI separation based on todo list items
+
+  document.querySelectorAll('.todo-checkbox').forEach((checkbox, index) => {
+    checkbox.addEventListener('click', (event) => {
+      const todoItem = document.querySelectorAll('.todo-item')[index];
+      if (event.target.checked) {
+        todoItem.classList.add('todo-item-done');
+      } else {
+        todoItem.classList.remove('todo-item-done');
+      }
+    });
+  });
 }
 // Function to handle UI separation based on todo list items
 function seperateOnRender() {
@@ -73,11 +84,5 @@ function lineThroughTodo() {
   const checkedBox = checkboxElement.checked
   const todoItem = document.querySelector('.todo-item');
 
-  if (checkedBox) {
-    todoItem.classList.add('todo-item-done');
-  } else {
-    todoItem.classList.remove('todo-item-done');
-  }
+  todoItem.classList.toggle('todo-item-done', checkedBox)
 }
-
-checkboxElement.addEventListener('click', () => lineThroughTodo())
