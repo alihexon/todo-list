@@ -46,7 +46,7 @@ function addTodo() {
   const todoName = document.querySelector('.todo-name').value; // Get the value of the todo name input
   const todoDate = document.querySelector('.todo-date').value; // Get the value of the todo date input
   
-  if (todoName === '' || todoDate === '') {
+  if (todoName === '') {
    alert('Please fill the inputs in order to add a new todo.') // Display an alert if inputs are empty
    return // Exit the function
   }
