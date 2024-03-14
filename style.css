@@ -106,8 +106,9 @@ ul li {
 
 .todo-item-done {
   text-decoration: line-through;
-  color: rgb(81, 81, 81);
   text-decoration-color: rgb(0, 0, 0);
+  color: rgb(172, 29, 29);
+  text-decoration-color: rgb(172, 29, 29);
 }
 
 .todo-checkbox {
