@@ -33,11 +33,7 @@ function renderTodoList() {
   document.querySelectorAll('.todo-checkbox').forEach((checkbox, index) => {
     checkbox.addEventListener('click', (event) => {
       const todoItem = document.querySelectorAll('.todo-item')[index];
-      if (event.target.checked) {
-        todoItem.classList.add('todo-item-done');
-      } else {
-        todoItem.classList.remove('todo-item-done');
-      }
+      todoItem.classList.toggle('todo-item-done', event.target.checked)
     });
   });
 }
