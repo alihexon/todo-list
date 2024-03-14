@@ -1,5 +1,6 @@
 // Retrieve the todoList from localStorage or initialize an empty array
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+let checkedItems = JSON.parse(localStorage.getItem('checked')) || [];
 const todoInput = document.querySelector('.todo-name');
 const todoSend = document.querySelector('.add-todo');
 
@@ -33,7 +34,9 @@ function renderTodoList() {
   document.querySelectorAll('.todo-checkbox').forEach((checkbox, index) => {
     checkbox.addEventListener('click', (event) => {
       const todoItem = document.querySelectorAll('.todo-item')[index];
-      todoItem.classList.toggle('todo-item-done', event.target.checked)
+      todoItem.classList.toggle('todo-item-done', event.target.checked);
+      checked = true;
+      localStorage.setItem('checked', JSON.stringify(checked));
     });
   });
 }
@@ -60,7 +63,8 @@ function addTodo() {
   // Create a new todo object with name and due date
   const newTodo = {
     name: todoName,
-    dueDate: todoDate
+    dueDate: todoDate,
+    checked: false,
   };
   
   todoList.push(newTodo); // Add the new todo to the todoList array
