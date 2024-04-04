@@ -1,17 +1,15 @@
-// Retrieve the todoList from localStorage or initialize an empty array
 let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 let checkedItems = JSON.parse(localStorage.getItem('checked')) || [];
 const todoInput = document.querySelector('.todo-name');
 const todoSend = document.querySelector('.add-todo');
 
-renderTodoList(); // Call the function to render the todo list when entering the page
-// Function to render the todo list items
+renderTodoList();
 function renderTodoList() {
   let todoListHTML = '';
   const todoListContainerHTML = document.querySelector('.todo-list');
 
   todoList.forEach((todoObject, index) => {
-    const { name, dueDate } = todoObject; // Destructure the name and dueDate from todoObject
+    const { name, dueDate } = todoObject;
     const HTML = `
       <li>
         <input type="checkbox" class="todo-checkbox">
@@ -25,11 +23,11 @@ function renderTodoList() {
           <i class='bx bxs-trash'></i>
         </button>
       </li>
-    ` // HTML template for each todo item
-    todoListHTML += HTML // Append the HTML to the todoListHTML string
+    `
+    todoListHTML += HTML
   })
-  todoListContainerHTML.innerHTML = todoListHTML; // Update the todo list container with the generated HTML
-  seperateOnRender(); // Call a function to handle UI separation based on todo list items
+  todoListContainerHTML.innerHTML = todoListHTML;
+  seperateOnRender();
 
   document.querySelectorAll('.todo-checkbox').forEach((checkbox, index) => {
     checkbox.addEventListener('click', (event) => {
@@ -40,46 +38,46 @@ function renderTodoList() {
     });
   });
 }
-// Function to handle UI separation based on todo list items
+
 function seperateOnRender() {
-  const todoListContainerHTML = document.querySelector('.todo-list'); // Get the todo list container
-  const seperator = document.querySelector('.seperator-off'); // Get the separator element
-  // Check if there are any todo list items
+  const todoListContainerHTML = document.querySelector('.todo-list');
+  const seperator = document.querySelector('.seperator-off');
+
   if (todoListContainerHTML.children.length > 0) {
-    seperator.classList.add('seperator'); // Add the separator class if there are items
+    seperator.classList.add('seperator');
   } else {
-    seperator.classList.remove('seperator'); // Remove the separator class if there are no items
+    seperator.classList.remove('seperator');
   }
 }
 // Function to add a new todo item
 function addTodo() {
-  const todoName = document.querySelector('.todo-name').value; // Get the value of the todo name input
-  const todoDate = document.querySelector('.todo-date').value; // Get the value of the todo date input
+  const todoName = document.querySelector('.todo-name').value;
+  const todoDate = document.querySelector('.todo-date').value;
   
   if (todoName === '') {
-   alert('Please fill the inputs in order to add a new todo.') // Display an alert if inputs are empty
-   return // Exit the function
+   alert('Please fill the inputs in order to add a new todo.');
+   return;
   }
-  // Create a new todo object with name and due date
+
   const newTodo = {
     name: todoName,
     dueDate: todoDate,
     checked: false,
   };
   
-  todoList.push(newTodo); // Add the new todo to the todoList array
-  localStorage.setItem('todoList', JSON.stringify(todoList)); // Update the todoList in localStorage
-  renderTodoList(); // Re-render the todo list
-  document.querySelector('.todo-name').value = ''; // Clear the todo name input
-  document.querySelector('.todo-date').value = ''; // Clear the todo date input
+  todoList.push(newTodo);
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+  renderTodoList();
+  document.querySelector('.todo-name').value = '';
+  document.querySelector('.todo-date').value = '';
 }
-// Event listener for clicking the add todo button
+
 todoSend.addEventListener('click', () => addTodo());
-// Event listener for pressing Enter to add a todo
+
 todoInput.addEventListener('keydown', () => { if (event.key === 'Enter') { addTodo() }}) 
 
 const checkboxElement = document.querySelector('.todo-checkbox');
-// Function to apply line-through style to todo item based on checkbox state
+
 function lineThroughTodo() {
   const checkedBox = checkboxElement.checked
   const todoItem = document.querySelector('.todo-item');
