@@ -49,7 +49,7 @@ function seperateOnRender() {
     seperator.classList.remove('seperator');
   }
 }
-// Function to add a new todo item
+
 function addTodo() {
   const todoName = document.querySelector('.todo-name').value;
   const todoDate = document.querySelector('.todo-date').value;
